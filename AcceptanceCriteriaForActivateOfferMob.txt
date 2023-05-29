@@ -1,0 +1,129 @@
+API NAME - getDashboardOptInOfferMob
+
+Here CMA is making call to EPsilon through EIP . EIP is making call to eipsilon and getting the response from epsilon.
+
+ # To get member offers - The offers should be sorted based on expiry date (in ascending order).  Also the expired offers should be filtered out.
+
+Name of the api: https://priv-apiqa4.eip.tractorsupply.com/ActivateOfferMob
+
+
+
+Requets Body:
+
+{
+    "ProfileId": "643e3229-2e9d-4c9b-8701-e28891f3eb38",
+    "StartDate": "2022-11-21T00:00:00Z",
+    "LoyaltyId": "7701550914011101",
+    "OptInDate": "2023-01-25T07:28:42.042Z",
+    "REWARDCODE": "L549394097343",
+    "NUMPOINTS": "0",
+    "SysOfferId": "9930f812-22fd-44c6-88da-543b11acf913"
+}
+
+Response : 
+
+{
+    "ProcessOfferResponse": {
+        "ProfileSysOfferId": "32425033-fe05-410d-ad36-324cd864e121",
+        "SysOfferId": "9930f812-22fd-44c6-88da-543b11acf913",
+        "ProfileId": "643e3229-2e9d-4c9b-8701-e28891f3eb38",
+        "ProgramCode": "TSCNC",
+        "StartDate": "2022-11-21T00:00:00Z",
+        "EndDate": "2023-01-31T00:00:00Z",
+        "ExpirationDate": "2023-03-26T07:28:42.042Z",
+        "OptInDate": "2023-01-25T07:28:42.042Z",
+        "SysOfferCode": "CANIDAE_OFFER_TEST",
+        "ActivityDate": "2023-01-25T08:18:15.1025167Z",
+        "UsageLimit": 1,
+        "UsageCount": 0,
+        "Status": "A",
+        "CreateUser": "TSC_APP_USER",
+        "CreateDate": "2023-01-25T08:18:15.1016016Z",
+        "UpdateUser": "TSC_APP_USER",
+        "UpdateDate": "2023-01-25T08:18:15.1016016Z"
+    },
+    "ActivateOfferResponse": {
+        "ActivityId": "15a153ff-4bf5-45f4-a5b9-9666fbda89bd",
+        "ActivityInput": [
+            {
+                "OfferCode": "CANIDAE_OFFER_TEST",
+                "REWARDCODE": "L549394097343",
+                "NUMPOINTS": "0"
+            }
+        ],
+        "ProfileId": "643e3229-2e9d-4c9b-8701-e28891f3eb38",
+        "ActivityType": "OPT_IN_OFFER",
+        "MomentResults": [
+            {
+                "OutcomeValue": "L549394097343",
+                "OutcomeValues": [
+                    {
+                        "Name": "OutcomeValue",
+                        "Value": "L549394097343"
+                    }
+                ],
+                "MomentCode": "CANIDAE_REWARD",
+                "OfferName": "CANIDAE_REWARD",
+                "MomentId": "fafaf2c6-e58b-4f11-aa30-743d462ce7bc",
+                "NumberIssued": 1,
+                "PointTypeAffected": "5be14b7a-a683-4213-938b-12eb5f3ef2d7",
+                "StartDate": "2022-11-30T00:00:00Z",
+                "EndDate": "2023-01-31T23:59:59Z",
+                "Description": "Assign Reward Code: L549394097343 when profile Opt-In to Offer Code: CANIDAE_OFFER_TEST",
+                "OutcomeType": "REWARD_CERTIFICATES",
+                "EventType": "Activity_OPT_IN_OFFER",
+                "MomentQualifyingDateAttribute": "CurrentDateTime",
+                "MomentQualifyingDateAttributeValue": "2023-01-25T08:18:15",
+                "QualifiedAttributes": [],
+                "MomentRespValues": [
+                    {
+                        "MomentCode": "CANIDAE_REWARD",
+                        "MomentType": "REWARD_CERTIFICATES",
+                        "ResponsePropertyName": "ENGAGE INDICATOR",
+                        "ResponsePropertyValue": "N",
+                        "CreateUser": "SCOTT.MCBAIN@EPSILON.COM",
+                        "CreateDate": "2022-12-01T21:18:34.500954Z",
+                        "UpdateUser": "SCOTT.MCBAIN@EPSILON.COM",
+                        "UpdateDate": "2022-12-01T21:18:34.500954Z"
+                    },
+                    {
+                        "MomentCode": "CANIDAE_REWARD",
+                        "MomentType": "REWARD_CERTIFICATES",
+                        "ResponsePropertyName": "NEGATE OUTCOME",
+                        "ResponsePropertyValue": "N",
+                        "CreateUser": "SCOTT.MCBAIN@EPSILON.COM",
+                        "CreateDate": "2022-12-01T21:18:34.502326Z",
+                        "UpdateUser": "SCOTT.MCBAIN@EPSILON.COM",
+                        "UpdateDate": "2022-12-01T21:18:34.502326Z"
+                    }
+                ],
+                "CyclicsAndCaps": {
+                    "MomentId": "fafaf2c6-e58b-4f11-aa30-743d462ce7bc",
+                    "MomentCode": "CANIDAE_REWARD",
+                    "Cyclics": {},
+                    "Caps": {}
+                },
+                "TimeRangeCaps": []
+            }
+        ],
+        "Status": "A",
+        "CreateUser": "TSC_APP_USER",
+        "CreateDate": "2023-01-25T08:18:15.8158222Z",
+        "UpdateUser": "TSC_APP_USER",
+        "UpdateDate": "2023-01-25T08:18:15.8158222Z",
+        "JsonExternalData": ""
+    }
+}
+
+Curl Code:
+
+curl --location --request POST "https://priv-apiqa4.eip.tractorsupply.com/ActivateOfferMob
+--header "wctoken: 640005009%2Cmdap6DS3k9bo8hbT5W5LjSWkB6D4kBuX6ipoP9Npy46OJMCn5%2FNqC8046xVQ%2FpcVr5tWN6eaEH9SoM2YoZTZGs7EBjeQPysdwWbOG%2Fue1OVQRu4X2rzoBzwqm30j9n0aRQhny9hqFE6ZgbsmqQaGH4IcvdVgnvGd7Bx%2FpZDDCezFuhT1MaseSxwEn%2FKKIIxwlhvdYH%2BHpvhwBVks7RLdtvwHdJd8etFGgn5WZxh%2FrDI6SrTCXenXeZTHTEKcElQVJtjr7u%2FheiggyTKlwV5y3Q%3D%3D" \
+--header "wctrustedtoken: 640005009%2C7ryZAsW2MvAjmDaa8%2BNoGntAiwoimza1qvwfbhB%2FRnI%3D" \
+--header "appversion: 1.9.0" \
+--header "mobileuniqueid: 4931312C-3764-4690-881C-C5BC52062933" \
+--header "uniqueid: 4931312C-3764-4690-881C-C5BC52062933" \
+--header "type: rewards" \
+--header "wcsid: 640005009" \
+--header "Authorization: Bearer eyJraWQiOiIqLnNzYy50c2MiLCJhbGciOiJSUzUxMiJ9.eyJzdWIiOiJzdmNjbWFhcGllaXBwZXJmIiwiYXVkIjoiMzg0ODRjYjEtYmMyOS00MTJiLThkODctMTIyYTIwODRhMmY2IiwibmJmIjoxNjc0NjQ0MzYyLCJpc3MiOiJUcmFjdG9yIFN1cHBseSBDb21wYW55IiwiZXhwIjoxNjc0Njg3NTYyLCJpYXQiOjE2NzQ2NDQzNjIsImFwcF9pZCI6IjM4NDg0Y2IxLWJjMjktNDEyYi04ZDg3LTEyMmEyMDg0YTJmNiJ9.S_FkVCHRoXoYLqV63PycOpS1Mi0yelnM1QNBr7W6HZpTZNXWdejJd9Fz5mVpbGl7giGj3UUWfdSdMDS8qXubtOYsThUctdNmpIXpl_WzXFxmG0e1DqzlW9JwncJKA0FZKmTkqiHD-9iXSKxLpNeozEPpy6m1CouE3_l1HDVQsvZcq08yyFnNAZFqtus9xxG5h6s8Qn1MZXRtoSu0zvP7HHxU9QONPCg0hh2_K_vYDFwy7dFr3_D5T1OxVK1VaHB5ou9R4k06vAG0qR2eFYU0Pbnuxf1Sz4dYyeTlbgRTE4fXpicUYkJtssX8PRn1gNp5e9G2ZWDkytXhgWktMt6pag" \
+--header "Cookie: _abck=38950D7617D1959A5FAD0ACEDE1498BB~-1~YAAQSWgBFwX8aMeFAQAAlAI7yQnxiMROJ5Y3z3dDYl1tJMlTgb2eJTqGIyy4eS9mV1q90ohk2CkJu1yGE3hVwnDgFGUi0lU7hz7p0x5vzrRHzpukDBYSOslWIMHDfOwu+1EzZ5YNMZbQLArjSeQqwPACFEFgC2jibqNOZaEpCB67JsN7hM6mxPObBS+8pujurTKgMyrVYpOA1XyC5uwS7igONYokU9MYhNxAB/53hMgP2BIO9Da3dwML9/P7enzqO/zXEudFHYJpm9wPQvkS5BSV5KUnXiydgnYecUVju5j//k0jfOGFDfaLNaXVl+ZihZeuVHmv2Ss7erVzLvXFBEGzQ1d/TkUFK6O2nAfXMsv028nADa5uRzi7ZoVgkylbSje1izSALWBau3TtRNc=~-1~-1~-1"

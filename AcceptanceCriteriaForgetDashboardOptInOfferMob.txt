@@ -1,0 +1,43 @@
+API NAME - getDashboardOptInOfferMob
+
+Here CMA is making call to EPsilon through EIP . EIP is making call to eipsilon and getting the response from epsilon.
+
+ # To get member offers - The offers should be sorted based on expiry date (in ascending order).  Also the expired offers should be filtered out.
+
+Name of the api: https://priv-apiqa4.eip.tractorsupply.com/getDashboardOptInOfferMob/7701550964000254
+
+Response : 
+
+{
+    "memberOffersDetails": {
+        "memberOffers": [
+            {
+                "offerName": "$5 Off Select Canidae Dry Dog Food",
+                "offerRewardCode": "TSCNC",
+                "endDate": "2023-01-31",
+                "offerShortDesc": "$5 Off Select Canidae Dry Dog Food Test",
+                "termsAndConditions": "To redeem online:\r\n\r\n1. Go to your loyalty account online or in the mobile app\r\n2. Open wallet and apply $5 Off Select Canidae Dry Dog Food to online order at checkout\r\nTo redeem in store:\r\n\r\n1. Open the Wallet in your Tractor Supply app or Account Dashboard\r\n3. View ‘Benefits’ Rewards\r\n4. Tap on \"$5 Off Select Canidae Dry Dog Food\" and show barcode to Team Member",
+                "offerDesc": "'^Must be a Neighbor’s Club member to qualify. Select Neighbor's Club members will receive a coupon for $5 off (1) Bag of Select Canidae Dry Dog Food. Not valid on prior purchases. Offer will stack on promotional pricing and clearance. Online exclusions may apply. Coupon required for discount. Valid 11/18/2022 through 1/31/2023.",
+                "offerCode": "CANIDAE_OFFER_TEST",
+                "profileId": "08a6916e-a9e2-438c-9560-d67f71cd6398",
+                "imageUrl": "https://media.tractorsupply.com/is/image/TractorSupplyCompany/1329728_A1?$456$",
+                "offerId": "9930f812-22fd-44c6-88da-543b11acf913",
+                "startDate": "2022-11-21T00:00:00Z"
+            }
+        ],
+        "totalOfferCount": "1"
+    }
+}
+
+Curl Code:
+
+curl --location --request POST "https://priv-apiqa4.eip.tractorsupply.com/getDashboardOptInOfferMob/7701550964000254" \
+--header "wctoken: 640005009%2Cmdap6DS3k9bo8hbT5W5LjSWkB6D4kBuX6ipoP9Npy46OJMCn5%2FNqC8046xVQ%2FpcVr5tWN6eaEH9SoM2YoZTZGs7EBjeQPysdwWbOG%2Fue1OVQRu4X2rzoBzwqm30j9n0aRQhny9hqFE6ZgbsmqQaGH4IcvdVgnvGd7Bx%2FpZDDCezFuhT1MaseSxwEn%2FKKIIxwlhvdYH%2BHpvhwBVks7RLdtvwHdJd8etFGgn5WZxh%2FrDI6SrTCXenXeZTHTEKcElQVJtjr7u%2FheiggyTKlwV5y3Q%3D%3D" \
+--header "wctrustedtoken: 640005009%2C7ryZAsW2MvAjmDaa8%2BNoGntAiwoimza1qvwfbhB%2FRnI%3D" \
+--header "appversion: 1.9.0" \
+--header "mobileuniqueid: 4931312C-3764-4690-881C-C5BC52062933" \
+--header "uniqueid: 4931312C-3764-4690-881C-C5BC52062933" \
+--header "type: rewards" \
+--header "wcsid: 640005009" \
+--header "Authorization: Bearer eyJraWQiOiIqLnNzYy50c2MiLCJhbGciOiJSUzUxMiJ9.eyJzdWIiOiJzdmNjbWFhcGllaXBwZXJmIiwiYXVkIjoiMzg0ODRjYjEtYmMyOS00MTJiLThkODctMTIyYTIwODRhMmY2IiwibmJmIjoxNjc0NjQ0MzYyLCJpc3MiOiJUcmFjdG9yIFN1cHBseSBDb21wYW55IiwiZXhwIjoxNjc0Njg3NTYyLCJpYXQiOjE2NzQ2NDQzNjIsImFwcF9pZCI6IjM4NDg0Y2IxLWJjMjktNDEyYi04ZDg3LTEyMmEyMDg0YTJmNiJ9.S_FkVCHRoXoYLqV63PycOpS1Mi0yelnM1QNBr7W6HZpTZNXWdejJd9Fz5mVpbGl7giGj3UUWfdSdMDS8qXubtOYsThUctdNmpIXpl_WzXFxmG0e1DqzlW9JwncJKA0FZKmTkqiHD-9iXSKxLpNeozEPpy6m1CouE3_l1HDVQsvZcq08yyFnNAZFqtus9xxG5h6s8Qn1MZXRtoSu0zvP7HHxU9QONPCg0hh2_K_vYDFwy7dFr3_D5T1OxVK1VaHB5ou9R4k06vAG0qR2eFYU0Pbnuxf1Sz4dYyeTlbgRTE4fXpicUYkJtssX8PRn1gNp5e9G2ZWDkytXhgWktMt6pag" \
+--header "Cookie: _abck=38950D7617D1959A5FAD0ACEDE1498BB~-1~YAAQSWgBFwX8aMeFAQAAlAI7yQnxiMROJ5Y3z3dDYl1tJMlTgb2eJTqGIyy4eS9mV1q90ohk2CkJu1yGE3hVwnDgFGUi0lU7hz7p0x5vzrRHzpukDBYSOslWIMHDfOwu+1EzZ5YNMZbQLArjSeQqwPACFEFgC2jibqNOZaEpCB67JsN7hM6mxPObBS+8pujurTKgMyrVYpOA1XyC5uwS7igONYokU9MYhNxAB/53hMgP2BIO9Da3dwML9/P7enzqO/zXEudFHYJpm9wPQvkS5BSV5KUnXiydgnYecUVju5j//k0jfOGFDfaLNaXVl+ZihZeuVHmv2Ss7erVzLvXFBEGzQ1d/TkUFK6O2nAfXMsv028nADa5uRzi7ZoVgkylbSje1izSALWBau3TtRNc=~-1~-1~-1"
